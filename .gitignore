@@ -1,0 +1,10 @@
+*.pssession
+__pycache__/
+.streamlit/
+Pipfile
+SimplePSData_update_own.py
+SimplePSData.py
+startapp.py
+Epeak Ipeak.py
+Polynomial Regression.py
+.DS_Store
