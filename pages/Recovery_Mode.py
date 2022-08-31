@@ -68,13 +68,14 @@ def update_summary_csv():
         with fs.open(f'{bucket}/Summary.csv', 'w') as f:
             summary.to_csv(f, index=False)
 
-        st.write(f'Summary.csv in {exp_type} is updated')
+        st.success(f'Summary.csv in {exp_type} is updated')
 
 ### Page Start ####################
 st.title('Recovery Mode')
 st.markdown("""---""")
 st.subheader('Update Summary.csv in AWS')
 update_summary_csv()
+
 st.markdown("""---""")
 excel = st.file_uploader('Input excel files to recover graph', accept_multiple_files=True)
 if len(excel) == 0:

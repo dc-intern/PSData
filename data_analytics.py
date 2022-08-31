@@ -48,7 +48,6 @@ def get_data_from_aws(type:str) -> tuple[pd.DataFrame, pd.DataFrame, int]:
     latest_avg = df['Avg']
     latest_std = df['Std']
     total_num_of_scan = df['Scan Count'][0]
-
     
     return latest_avg, latest_std, total_num_of_scan
     
@@ -107,7 +106,6 @@ def get_avg_df(x_df:pd.DataFrame, y_df:pd.DataFrame) -> pd.DataFrame:
     return df
 
 def store_to_aws(y_df:pd.DataFrame, avg_df:pd.DataFrame, std_df:pd.DataFrame, total_num_of_scan:int, type:str, file_name:str):
-     
     # update Summary.csv
     # if no previous data, create Summary.csv from inputed data
     if total_num_of_scan == 0:
@@ -162,11 +160,14 @@ def store_to_aws(y_df:pd.DataFrame, avg_df:pd.DataFrame, std_df:pd.DataFrame, to
     
     with fs.open(output_path, 'w') as f:
         y_df.to_csv(f, index=False) 
+    
+    st.success('Data is stored to AWS')
 
 def get_two_half(avg_df:pd.DataFrame, xlabel:str, ylabel:str) -> tuple[pd.DataFrame, pd.DataFrame]:
     # divide the data into two half
     start = avg_df[xlabel].idxmin()
     end = avg_df[xlabel].idxmax()
+    st.success('Data is stored to AWS')
     change_pt = max(start, end) + 1
 
     # determine which is top half and which is second half
@@ -234,7 +235,6 @@ def sub_x(coefs:list, x:float) -> float:
     return concave 
     
 def get_peak(df, half, coef, d2_limit, r_sq_limit, position):
-
     xlabel = df.columns[0]
     ylabel = df.columns[1]
 
