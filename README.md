@@ -18,7 +18,7 @@ cd PSData
 
 
 3. Follow Streamlit's officially tutorial to set up Streamlit envirnoment: https://docs.streamlit.io/library/get-started/installation
-
+<br/><br/>
 
 4. Install all the dependency from the requirements.txt
 ```
