@@ -167,7 +167,6 @@ def get_two_half(avg_df:pd.DataFrame, xlabel:str, ylabel:str) -> tuple[pd.DataFr
     # divide the data into two half
     start = avg_df[xlabel].idxmin()
     end = avg_df[xlabel].idxmax()
-    st.success('Data is stored to AWS')
     change_pt = max(start, end) + 1
 
     # determine which is top half and which is second half
