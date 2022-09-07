@@ -294,7 +294,7 @@ for experiment in experiments:
 # Data Analytics
 st.title('Data Analytics')
 
-exp_type = st.selectbox('Select Experiment Type For Data Storage', [' ', 'CV1', 'CV2', 'CV3', 'AD1'])
+exp_type = st.selectbox('Select Experiment Type For Data Storage', ['Do not store data to AWS', 'CV1', 'CV2', 'CV3', 'AD1'])
 
 x_df, y_df = data_analytics.get_xy_dataframe(x_values, y_values, experiments, scan_in_group, xlabel)
 
@@ -305,7 +305,7 @@ old_avg_df, old_std_df, old_numof_scan = data_analytics.get_data_from_aws(exp_ty
 outlier, y_df_no_outlier_mean, y_df_no_outlier = data_analytics.detect_outlier(y_df, old_avg_df, old_std_df, old_numof_scan, ylabel)
 
 # store to aws
-if exp_type != ' ':
+if exp_type != 'Do not store data to AWS':
     data_analytics.store_to_aws(y_df_no_outlier, old_avg_df, old_std_df, old_numof_scan, exp_type, pssession.name)
 
 avg_df = data_analytics.get_avg_df(x_df, y_df_no_outlier_mean)
