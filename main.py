@@ -399,6 +399,10 @@ with tab3:
     fig.update_layout(showlegend=False)
     st.plotly_chart(fig, config=config)
 
+    st.write(f'E PA = {E_pa}')
+    st.write(f'I PA = {I_pa}')
+    st.write(f'E PC = {E_pc}')
+    st.write(f'I PC = {I_pc}')
     st.write(f'Optimum limit for top half d2a/dv2: {top_d2_limit}')
     st.write(f'Optimum limit for bottom half d2a/dv2: {bottom_d2_limit}')
     
