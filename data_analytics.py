@@ -36,6 +36,9 @@ def get_xy_dataframe(x_value:list, y_value:list, experiment:list, title:list, xl
     return x_df, y_df
 
 def get_data_from_aws(type:str) -> tuple[pd.DataFrame, pd.DataFrame, int]:
+    if type == ' ':
+        return pd.DataFrame, pd.DataFrame, 0 
+        
     fs = s3fs.S3FileSystem(anon=False,client_kwargs={
                            'endpoint_url':'https://s3.ap-east-1.amazonaws.com'
                            })
