@@ -36,9 +36,9 @@ def get_xy_dataframe(x_value:list, y_value:list, experiment:list, title:list, xl
     return x_df, y_df
 
 def get_data_from_aws(type:str) -> tuple[pd.DataFrame, pd.DataFrame, int]:
-    if type == ' ':
+    if type == 'Do not store data to AWS':
         return pd.DataFrame, pd.DataFrame, 0 
-        
+
     fs = s3fs.S3FileSystem(anon=False,client_kwargs={
                            'endpoint_url':'https://s3.ap-east-1.amazonaws.com'
                            })
@@ -108,6 +108,7 @@ def get_avg_df(x_df:pd.DataFrame, y_df:pd.DataFrame) -> pd.DataFrame:
     df = pd.concat([x_df, y_df, line_group, dash], axis=1)
     return df
 
+@st.cache
 def store_to_aws(y_df:pd.DataFrame, avg_df:pd.DataFrame, std_df:pd.DataFrame, total_num_of_scan:int, type:str, file_name:str):
     # update Summary.csv
     # if no previous data, create Summary.csv from inputed data
