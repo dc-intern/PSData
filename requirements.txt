@@ -6,4 +6,5 @@ openpyxl
 streamlit >= 1.9.2
 plotly
 sklearn
+scikit-learn
 s3fs
