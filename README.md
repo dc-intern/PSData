@@ -1,6 +1,6 @@
 # PSData
 
-Access on streamlit cloud: https://dc-intern-psdata-main-rioiwg.streamlitapp.com/
+Access on streamlit cloud: https://dc-intern-psdata-main-1su28y.streamlit.app/
 
 Local installation:
 
